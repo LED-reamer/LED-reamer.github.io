@@ -1,1 +1,12 @@
 alpaca.zip
+assimp.zip
+glew.zip
+glfw.zip
+glm.zip
+graphX.zip
+imgui.zip
+jsocket.zip
+openal.zip
+SDL2.zip
+sfml.zip
+stb_image.zip
