@@ -1,2 +1,2 @@
 # LED-reamer.github.io
-[https://led-reamer.github.io/libs](url)
+[https://led-reamer.github.io/index.html](url)
