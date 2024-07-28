@@ -28,7 +28,8 @@ def getList():
 getList()
 
 if(args.list):
-    print(libList)
+    for library in libList:
+        print(library)
     exit()
 
 if(args.find):
