@@ -10,3 +10,4 @@ openal.zip
 SDL2.zip
 sfml.zip
 stb_image.zip
+utils.zip
