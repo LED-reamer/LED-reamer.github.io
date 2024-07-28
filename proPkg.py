@@ -36,22 +36,39 @@ if(args.find):
     if(args.find == None):
         print(libList)
         exit()
-    print([s for s in libList if args.find in s])
+
+    for hit in libList:
+        if(args.find in hit):
+            print(hit)
+    exit()
+
+def download_and_extract(file):
+    print("Downloading \"" + file + "\"")
+    open(file, 'wb').write(requests.get(reposLink + file, allow_redirects=True).content)
+    
+    if(file.endswith(".zip")):
+        print("Extracting \"" + file + "\"")
+        with zipfile.ZipFile(file, 'r') as zip_ref:
+            zip_ref.extractall(".")
+        os.remove(file)
     exit()
 
 if(args.get):
     if(not args.get in libList):
+        num_hits = 0
+        success = ""
+        for hit in libList:
+            if args.get in hit:
+                num_hits += 1
+                success = hit
+
+        if(num_hits == 1):
+            download_and_extract(success)
+        
         print("Could not find \"" + args.get + "\"")
-        print(libList)
+        for library in libList:
+            print(library)
         exit()
-    
-    open(args.get, 'wb').write(requests.get(reposLink + args.get, allow_redirects=True).content)
-    
-    if(args.get.endswith(".zip")):
-        with zipfile.ZipFile(args.get, 'r') as zip_ref:
-            zip_ref.extractall(".")
-        os.remove(args.get)
-    exit()
     
 
 #if no accepted mode was detected
